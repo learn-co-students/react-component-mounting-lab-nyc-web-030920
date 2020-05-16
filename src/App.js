@@ -11,7 +11,11 @@ class App extends Component {
 
 
   //Your code here:
-
+  
+  // want to render a timer for the user upon initial render ( actually initial render does not render a timer, then componentDidMount executes, adding a timerID to the state and triggering a rerender creating an illusion of a render of a timer on initial render)
+  componentDidMount() {
+    this.handleAddTimer()
+  }
 
 
 

@@ -7,6 +7,17 @@ class Timer extends Component {
   };
 
   // add your code here
+  // will get called once the initial render executes
+  componentDidMount() {
+    // set setInterval to a variable to allow easier removal of it later
+    this.interval = setInterval(this.clockTick, 1000)
+  }
+
+  // will get called once the timer is removed from the DOM (unmounted) via the removeTimer props method 
+  // will prevent the setInterval from continously trying to setState to a component that does not exist, after the component has unmounted
+  componentWillUnmount() {
+    this.stopClock()
+  }
 
   render() {
     const { time, color } = this.state;
